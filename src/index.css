@@ -8,3 +8,47 @@ body {
   @apply bg-brand-black text-white;
   font-family: "Nunito Sans", sans-serif;
 }
+
+.login-overlay {
+  @apply bg-transparent fixed top-0 h-0 transition-opacity opacity-0 duration-1000;
+
+  &.active {
+    @apply opacity-100 h-full w-full bg-black/60;
+  }
+}
+
+@keyframes login-screen-loader {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.loading-wrapper {
+  @apply transition-all opacity-0 flex justify-center duration-1000 z-10 w-0 h-0;
+
+  &.active {
+    @apply opacity-100 w-32 h-32;
+  }
+}
+
+.loader {
+  /* @apply absolute top-1/3 mx-auto; */
+
+  .loading {
+    @apply flex flex-col gap-12;
+
+    .outer {
+      @apply bg-brand-red w-[100px] h-[100px] rounded-full mx-auto;
+      animation: login-screen-loader 1s infinite;
+      animation-timing-function: linear;
+      animation-direction: reverse;
+
+      .inner {
+        @apply bg-[#080808] relative w-full h-full rounded-full mx-auto -left-1;
+      }
+    }
+  }
+}

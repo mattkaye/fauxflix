@@ -17,5 +17,8 @@ module.exports = {
       lineHeight: 1.2,
     },
   },
-  plugins: [require("tailwind-fluid-typography")],
+  plugins: [
+    require("@tailwindcss/nesting"),
+    require("tailwind-fluid-typography"),
+  ],
 };
